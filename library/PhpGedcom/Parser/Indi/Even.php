@@ -36,7 +36,7 @@ class Even extends \PhpGedcom\Parser\Component
         $even = null;
 
         if (strtoupper(trim($record[1])) != 'EVEN') {
-            $className = '\\PhpGedcom\\Record\\Indi\\' . ucfirst(strtolower(trim($record[1])));
+            $className = '\\PhpGedcom\\Record\\Indi\\' . ucfirst(str_replace('_', '', strtolower(trim($record[1]))));
             $even = new $className();
         } else {
             $even = new \PhpGedcom\Record\Indi\Even();

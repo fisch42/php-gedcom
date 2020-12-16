@@ -141,6 +141,7 @@ class Indi extends \PhpGedcom\Parser\Component
                 case 'CONF':
                 case 'CREM':
                 case 'DEAT':
+                case '_DEG':
                 case 'EMIG':
                 case 'FCOM':
                 case 'GRAD':
@@ -151,7 +152,7 @@ class Indi extends \PhpGedcom\Parser\Component
                 case 'PROB':
                 case 'WILL':
                 case 'EVEN':
-                    $className = ucfirst(strtolower($recordType));
+                    $className = ucfirst(str_replace('_', '', strtolower($recordType)));
                     $class = '\\PhpGedcom\\Parser\\Indi\\' . $className;
 
                     $event = $class::parse($parser);
