@@ -56,6 +56,9 @@ class Obje extends \PhpGedcom\Parser\Component
                 case 'TITL':
                     $obje->setTitl(trim($record[2]));
                     break;
+                case 'FILE':
+                    $obje->setFile(trim($record[2]));
+                    break;
                 case 'OBJE':
                     $obje->setForm($parser->normalizeIdentifier($record[2]));
                     break;
